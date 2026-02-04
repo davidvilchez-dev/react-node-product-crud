@@ -4,8 +4,9 @@ import swaggerUi from 'swagger-ui-express'
 import { router } from "./router"
 import { connectDB } from "./config/db"
 import { swaggerSpec } from "./config/swagger"
-import cors, { CorsOptions } from "cors"
+import cors from "cors"
 import morgan from 'morgan'
+import { corsOptions } from "./config/cors"
 
 
 //*Llamar a la conexion de BD
@@ -14,17 +15,6 @@ connectDB()
 export const server = express()
 
 //* Habilitar CORS -> Permitir conexiones externas
-const corsOptions: CorsOptions = {
-    origin: function (origin, callback) {
-        if (origin === process.env.FRONTEND_URL) {
-            callback(null, true) // -> callback(error, permitir conexion)
-            console.log('Permitir')
-        } else {
-            callback(new Error('ERROR DE CORS'))
-            console.log('denegar')
-        }
-    }
-}
 
 server.use(cors(corsOptions))
 

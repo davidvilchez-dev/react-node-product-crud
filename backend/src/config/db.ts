@@ -11,7 +11,6 @@ export const db = new Sequelize(process.env.DATABASE_URL!,
     }
 )
 
-//Conectar a base de Datos
 
 export async function connectDB() {
 

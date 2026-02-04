@@ -1,6 +1,5 @@
 import { check } from 'express-validator';
 
-// Exportar un array de middleware de validación
 
 export const validateProduct = [
     check('name')

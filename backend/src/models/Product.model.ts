@@ -13,7 +13,7 @@ export default class Product extends Model {
 
 
     @Column({
-        type: DataType.INTEGER
+        type: DataType.FLOAT
     })
     declare price: number
 
