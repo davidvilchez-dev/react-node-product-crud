@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import Product from "../models/Product.model";
-import { error } from "console";
+
 
 export const getProducts = async (req: Request, res: Response) => {
 
@@ -24,29 +24,7 @@ export const getProductById = async (req: Request, res: Response) => {
 
 export const createProduct = async (req: Request, res: Response) => {
 
-    console.log(req.body)
 
-    // const product = new Product(req.body) //
-    // const saveProduct = await product.save() //
-
-    //* Validaciones
-    // let validator = [
-    //         // await check('name')
-    // //     .notEmpty().withMessage('El nombre del Producto no puede ir vacio')
-    // //     .run(req)
-    // // await check('price')
-    // //     .isNumeric().withMessage('Valor no válido')
-    // //     .notEmpty().withMessage('El precio del Producto no puede ir vacio')
-    // //     .custom(value => value > 0).withMessage('El precio tiene que ser mayor a 0')
-    // //     .run(req)
-
-    // // let errors = validationResult(req)
-
-    // // if (!errors.isEmpty()) {
-
-    // //     return res.status(400).json({ errors: errors.array() })
-    // // }
-    // ]
     const product = await Product.create(req.body)
     res.status(201).json({ data: product })
 

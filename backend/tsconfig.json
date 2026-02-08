@@ -47,6 +47,5 @@
     "rootDir": "src",
     "outDir": "dist",
   },
-   "include": ["src", "tests"],
-   "exclude": ["src/**/*.test.ts"] 
+   "include": ["src"]
 }
